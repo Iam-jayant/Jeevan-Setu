@@ -436,7 +436,7 @@ export function HomePage() {
             {[
               // What organ donation is
               {
-                img: '/images/organ1.jpg',
+                img: '/images/organ1.png',
                 url: 'https://drive.google.com/file/d/1GzzP1HUwaXFIypJcDLn-M944frMNFsGW/view?usp=drive_link',
               },
               // Is there an age limit?
