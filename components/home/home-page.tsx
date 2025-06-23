@@ -2,7 +2,26 @@
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
-import { Heart, Users, Shield, Award, Languages, UserPlus, Search, FileCheck, Stethoscope, CheckCircle, Phone, Mail, MapPin, Clock, Star, AlertTriangle, LifeBuoy, UserCheck,} from "lucide-react"
+import {
+  Heart,
+  Users,
+  Shield,
+  Award,
+  Languages,
+  UserPlus,
+  Search,
+  FileCheck,
+  Stethoscope,
+  CheckCircle,
+  Phone,
+  Mail,
+  MapPin,
+  Clock,
+  Star,
+  AlertTriangle,
+  LifeBuoy,
+  UserCheck,
+} from "lucide-react"
 import { useLanguage } from "@/contexts/language-context"
 import { useAuth } from "@/contexts/auth-context"
 import { useRouter } from "next/navigation"
@@ -17,7 +36,7 @@ export function HomePage() {
   const handleNavigate = (page: "login" | "signup") => {
     router.push(`/${page}`)
   }
-  
+
   const howItWorksSteps = [
     {
       icon: UserPlus,
@@ -398,6 +417,49 @@ export function HomePage() {
                   <CardDescription className="text-gray-600">{feature.description}</CardDescription>
                 </CardContent>
               </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Organ Donation Education Videos Section */}
+      <section className="py-20 bg-blue-50 animate-fade-in">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Check these videos once to know about organ donation
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              {/* Sample text: Replace with your own description */}
+              Learn more about the importance, process, and impact of organ donation through these informative videos.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {[1,2,3,4,5,6].map((num) => (
+              <div key={num} className="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col">
+                <div className="aspect-w-16 aspect-h-9 w-full">
+                  {/* Replace src with actual video links */}
+                  <iframe
+                    src="https://www.youtube.com/embed/sample_video_link"
+                    title={`Sample Video Title ${num}`}
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    className="w-full h-48 md:h-56 lg:h-64"
+                  ></iframe>
+                </div>
+                <div className="p-4 flex-1 flex flex-col justify-between">
+                  <h3 className="text-lg font-semibold mb-2">Sample Video Title {num}</h3>
+                  <p className="text-gray-600 text-sm mb-2">Sample description for video {num}. Replace with actual content about organ donation.</p>
+                  <a
+                    href="https://www.youtube.com/watch?v=sample_video_link"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-blue-600 hover:underline text-sm"
+                  >
+                    Watch on YouTube
+                  </a>
+                </div>
+              </div>
             ))}
           </div>
         </div>
