@@ -2,26 +2,7 @@
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
-import {
-  Heart,
-  Users,
-  Shield,
-  Award,
-  Languages,
-  UserPlus,
-  Search,
-  FileCheck,
-  Stethoscope,
-  CheckCircle,
-  Phone,
-  Mail,
-  MapPin,
-  Clock,
-  Star,
-  AlertTriangle,
-  LifeBuoy,
-  UserCheck,
-} from "lucide-react"
+import { Heart, Users, Shield, Award, Languages, UserPlus, Search, FileCheck, Stethoscope, CheckCircle, Phone, Mail, MapPin, Clock, Star, AlertTriangle, LifeBuoy, UserCheck,} from "lucide-react"
 import { useLanguage } from "@/contexts/language-context"
 import { useAuth } from "@/contexts/auth-context"
 import { useRouter } from "next/navigation"
@@ -36,7 +17,7 @@ export function HomePage() {
   const handleNavigate = (page: "login" | "signup") => {
     router.push(`/${page}`)
   }
-
+  
   const howItWorksSteps = [
     {
       icon: UserPlus,
