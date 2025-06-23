@@ -440,7 +440,7 @@ export function HomePage() {
                 <div className="aspect-w-16 aspect-h-9 w-full">
                   {/* Replace src with actual video links */}
                   <iframe
-                    src="https://www.youtube.com/embed/sample_video_link"
+                    src="https://drive.google.com/file/d/1GzzP1HUwaXFIypJcDLn-M944frMNFsGW/view?usp=drive_link"
                     title={`Sample Video Title ${num}`}
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen
