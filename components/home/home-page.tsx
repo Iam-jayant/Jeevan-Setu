@@ -436,42 +436,42 @@ export function HomePage() {
             {[
               // What organ donation is
               {
-                img: '/images/organ1.png',
+                img: '/images/1.png',
                 url: 'https://drive.google.com/file/d/1GzzP1HUwaXFIypJcDLn-M944frMNFsGW/view?usp=drive_link',
               },
               // Is there an age limit?
               {
-                img: '/images/organ2.jpg',
+                img: '/images/2.png',
                 url: 'https://drive.google.com/file/d/1AhlI_K632_nORbiydcDBw9uJf2BKxmO8/view?usp=drive_link',
               },
               // Types of organ donation
               {
-                img: '/images/organ3.jpg',
+                img: '/images/3.png',
                 url: 'https://drive.google.com/file/d/1GzzP1HUwaXFIypJcDLn-M944frMNFsGW/view?usp=drive_link',
               },
               // Which organ can be donated?
               {
-                img: '/images/organ4.jpg',
+                img: '/images/4.png',
                 url: 'https://drive.google.com/file/d/1H7iWbpXAOUShEb88QXXkXZzL4ObQG7G3/view?usp=drive_link',
               },
               // How many lives can organ donor save?
               {
-                img: '/images/organ5.jpg',
+                img: '/images/5.png',
                 url: 'https://drive.google.com/file/d/1zYmfLXEhOzyyB3UOrD8LtPpcJlcjaEmj/view?usp=drive_link',
               },
               // Whole body donation
               {
-                img: '/images/organ6.jpg',
+                img: '/images/6.png',
                 url: 'https://drive.google.com/file/d/10PjNDBDR0PTtc1JQuUJcYqMcZQRPZMi8/view?usp=drive_link',
               },
               // who can be a donor?
               {
-                img: '/images/organ7.jpg',
+                img: '/images/7.png',
                 url: 'https://drive.google.com/file/d/1PTiqsr68gCK-fKRR__a92B9BmTVScFju/view?usp=drive_link',
               },
               // Heart transplant journey
               {
-                img: '/images/organ8.jpg',
+                img: '/images/8.png',
                 url: 'https://drive.google.com/file/d/1ldEa42Yn-bBwA4DNnJczDMuUbE5TH_ut/view?usp=drive_link',
               },
             ].map((video, idx) => (
