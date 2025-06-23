@@ -421,7 +421,6 @@ export function HomePage() {
           </div>
         </div>
       </section>
-
       {/* Organ Donation Education Videos Section */}
       <section className="py-20 bg-blue-50 animate-fade-in">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -430,36 +429,75 @@ export function HomePage() {
               Check these videos once to know about organ donation
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              {/* Sample text: Replace with your own description */}
-              Learn more about the importance, process, and impact of organ donation through these informative videos.
+              Learn about organ donation and its impact through these short videos.
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[1,2,3,4,5,6].map((num) => (
-              <div key={num} className="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col">
-                <div className="aspect-w-16 aspect-h-9 w-full">
-                  {/* Replace src with actual video links */}
-                  <iframe
-                    src="https://drive.google.com/file/d/1GzzP1HUwaXFIypJcDLn-M944frMNFsGW/view?usp=drive_link"
-                    title={`Sample Video Title ${num}`}
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                    className="w-full h-48 md:h-56 lg:h-64"
-                  ></iframe>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+            {[
+              // What organ donation is
+              {
+                img: '/images/organ1.jpg',
+                url: 'https://drive.google.com/file/d/1GzzP1HUwaXFIypJcDLn-M944frMNFsGW/view?usp=drive_link',
+              },
+              // Is there an age limit?
+              {
+                img: '/images/organ2.jpg',
+                url: 'https://drive.google.com/file/d/1AhlI_K632_nORbiydcDBw9uJf2BKxmO8/view?usp=drive_link',
+              },
+              // Types of organ donation
+              {
+                img: '/images/organ3.jpg',
+                url: 'https://drive.google.com/file/d/1GzzP1HUwaXFIypJcDLn-M944frMNFsGW/view?usp=drive_link',
+              },
+              // Which organ can be donated?
+              {
+                img: '/images/organ4.jpg',
+                url: 'https://drive.google.com/file/d/1H7iWbpXAOUShEb88QXXkXZzL4ObQG7G3/view?usp=drive_link',
+              },
+              // How many lives can organ donor save?
+              {
+                img: '/images/organ5.jpg',
+                url: 'https://drive.google.com/file/d/1zYmfLXEhOzyyB3UOrD8LtPpcJlcjaEmj/view?usp=drive_link',
+              },
+              // Whole body donation
+              {
+                img: '/images/organ6.jpg',
+                url: 'https://drive.google.com/file/d/10PjNDBDR0PTtc1JQuUJcYqMcZQRPZMi8/view?usp=drive_link',
+              },
+              // who can be a donor?
+              {
+                img: '/images/organ7.jpg',
+                url: 'https://drive.google.com/file/d/1PTiqsr68gCK-fKRR__a92B9BmTVScFju/view?usp=drive_link',
+              },
+              // Heart transplant journey
+              {
+                img: '/images/organ8.jpg',
+                url: 'https://drive.google.com/file/d/1ldEa42Yn-bBwA4DNnJczDMuUbE5TH_ut/view?usp=drive_link',
+              },
+            ].map((video, idx) => (
+              <a
+                key={idx}
+                href={video.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-white rounded-xl shadow-lg overflow-hidden flex flex-col items-center group transform transition duration-300 hover:scale-105 hover:shadow-2xl animate-fade-in-up"
+                style={{ animationDelay: `${idx * 80}ms` }}
+                title="Open video in new tab"
+              >
+                <div className="relative w-full h-48 md:h-56 lg:h-64 overflow-hidden">
+                  <img
+                    src={video.img}
+                    alt="Organ Donation Video Thumbnail"
+                    className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <svg className="w-16 h-16 text-white" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M14.752 11.168l-5.197-3.027A1 1 0 008 9.027v5.946a1 1 0 001.555.832l5.197-3.027a1 1 0 000-1.664z" />
+                      <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2" />
+                    </svg>
+                  </div>
                 </div>
-                <div className="p-4 flex-1 flex flex-col justify-between">
-                  <h3 className="text-lg font-semibold mb-2">Sample Video Title {num}</h3>
-                  <p className="text-gray-600 text-sm mb-2">Sample description for video {num}. Replace with actual content about organ donation.</p>
-                  <a
-                    href="https://www.youtube.com/watch?v=sample_video_link"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-blue-600 hover:underline text-sm"
-                  >
-                    Watch on YouTube
-                  </a>
-                </div>
-              </div>
+              </a>
             ))}
           </div>
         </div>
