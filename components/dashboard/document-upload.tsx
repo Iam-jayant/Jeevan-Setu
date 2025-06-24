@@ -106,6 +106,37 @@ export function DocumentUpload({ userId, profileId, onClose }: DocumentUploadPro
               <li>• Government ID (Aadhaar/PAN/Passport)</li>
               <li>• Blood Group Report</li>
             </ul>
+            {/* File Inputs for Uploads */}
+            <div className="w-full flex flex-col gap-4 mb-4">
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Government ID</label>
+                <input
+                  type="file"
+                  accept=".pdf,.jpg,.jpeg,.png"
+                  ref={nameProofRef}
+                  disabled={!!uploadedDocs.name_proof}
+                  onChange={() => handleFileSelect("name_proof")}
+                  className="block w-full text-sm text-gray-700 file:mr-4 file:py-2 file:px-4 file:rounded file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
+                />
+                {uploadedDocs.name_proof && (
+                  <span className="text-green-600 text-xs ml-2">Uploaded</span>
+                )}
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Blood Group Report</label>
+                <input
+                  type="file"
+                  accept=".pdf,.jpg,.jpeg,.png"
+                  ref={bloodReportRef}
+                  disabled={!!uploadedDocs.blood_group_report}
+                  onChange={() => handleFileSelect("blood_group_report")}
+                  className="block w-full text-sm text-gray-700 file:mr-4 file:py-2 file:px-4 file:rounded file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
+                />
+                {uploadedDocs.blood_group_report && (
+                  <span className="text-green-600 text-xs ml-2">Uploaded</span>
+                )}
+              </div>
+            </div>
             {/* Modified Button - Changes color based on upload state */}
             {allUploaded ? (
               <Button
@@ -115,22 +146,8 @@ export function DocumentUpload({ userId, profileId, onClose }: DocumentUploadPro
                 <CheckCircle className="h-5 w-5 text-white" />
                 Documents Uploaded
               </Button>
-            ) : (
-              <Button
-                onClick={onClose}
-                className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg h-11 text-base shadow"
-                disabled={uploading}
-              >
-                {uploading ? (
-                  "Uploading..."
-                ) : (
-                  <>
-                    <Upload className="h-5 w-5 mr-2" />
-                    Upload Documents
-                  </>
-                )}
-              </Button>
-            )}
+            ) : null}
+            {error && <div className="text-red-600 text-xs mt-2">{error}</div>}
           </div>
           <div className="bg-amber-50 p-3 rounded-lg">
             <p className="text-xs text-amber-800">
