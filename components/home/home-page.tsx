@@ -26,11 +26,14 @@ import { useLanguage } from "@/contexts/language-context"
 import { useAuth } from "@/contexts/auth-context"
 import { useRouter } from "next/navigation"
 import { getRedirectPath } from "@/lib/auth-utils"
+import { useState } from "react"
+import { Menu, X } from "lucide-react"
 
 export function HomePage() {
   const { language, setLanguage, t } = useLanguage()
   const { user, profile, loading } = useAuth()
   const router = useRouter()
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   // Navigate to login/signup pages
   const handleNavigate = (page: "login" | "signup") => {
@@ -227,7 +230,8 @@ export function HomePage() {
               </div>
             </div>
 
-            <div className="flex items-center gap-4">
+            {/* Desktop Navbar */}
+            <div className="hidden md:flex items-center gap-4">
               {/* Language Switcher */}
               <div className="flex items-center gap-2">
                 <Languages className="h-4 w-4 text-gray-500" />
@@ -265,8 +269,59 @@ export function HomePage() {
                 </Button>
               )}
             </div>
+
+            {/* Hamburger for Mobile */}
+            <button
+              className="md:hidden p-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+              onClick={() => setMobileMenuOpen((v) => !v)}
+              aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
+            >
+              {mobileMenuOpen ? <X className="h-6 w-6 text-gray-700" /> : <Menu className="h-6 w-6 text-gray-700" />}
+            </button>
           </div>
         </div>
+        {/* Mobile Menu */}
+        {mobileMenuOpen && (
+          <div className="md:hidden bg-white border-b shadow-lg animate-fade-in-down">
+            <div className="flex flex-col gap-4 px-6 py-4">
+              {/* Language Switcher */}
+              <div className="flex items-center gap-2 mb-2">
+                <Languages className="h-4 w-4 text-gray-500" />
+                <Button
+                  variant={language === "en" ? "default" : "outline"}
+                  size="sm"
+                  onClick={() => setLanguage("en")}
+                  className="h-8 px-3"
+                >
+                  EN
+                </Button>
+                <Button
+                  variant={language === "hi" ? "default" : "outline"}
+                  size="sm"
+                  onClick={() => setLanguage("hi")}
+                  className="h-8 px-3"
+                >
+                  हिं
+                </Button>
+              </div>
+              {/* Auth Buttons */}
+              {!user ? (
+                <>
+                  <Button onClick={() => { setMobileMenuOpen(false); handleNavigate("login") }} variant="outline" className="w-full">
+                    {t("nav.login")}
+                  </Button>
+                  <Button onClick={() => { setMobileMenuOpen(false); handleNavigate("signup") }} className="w-full bg-blue-600 hover:bg-blue-700">
+                    {t("nav.signup")}
+                  </Button>
+                </>
+              ) : (
+                <Button onClick={() => { setMobileMenuOpen(false); router.push(getRedirectPath(profile)) }} className="w-full bg-blue-600 hover:bg-blue-700">
+                  {t("nav.dashboard")}
+                </Button>
+              )}
+            </div>
+          </div>
+        )}
       </header>
 
       {/* Hero Section */}
