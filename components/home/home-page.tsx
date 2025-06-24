@@ -211,9 +211,16 @@ export function HomePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center">
-              <div className="bg-gradient-to-r from-blue-600 to-green-600 p-2 rounded-full mr-3">
-                <Heart className="h-6 w-6 text-white" />
-              </div>
+                <div
+                className="p-2 rounded-full mr-3"
+                style={{
+                  backgroundImage: "url('/images/logo-gradient-bg.png')",
+                  backgroundSize: "cover",
+                  backgroundPosition: "center",
+                }}
+                >
+                <img src="/images/logo.png" alt="Jeevan Setu Logo" className="h-10 w-10 object-contain" />
+                </div>
               <div>
                 <h1 className="text-xl font-bold text-gray-900">{t("home.title")}</h1>
                 <p className="text-xs text-gray-500">{t("home.subtitle")}</p>
@@ -266,9 +273,7 @@ export function HomePage() {
       <section className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto text-center">
           <div className="mb-8">
-            <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-r from-blue-600 to-green-600 rounded-full mb-6">
-              <Heart className="h-10 w-10 text-white" />
-            </div>
+            <img src="/images/logo.png" alt="Jeevan Setu Logo" className="h-20 w-20 mb-6 object-contain mx-auto" />
             <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-4">{t("home.title")}</h1>
             <p className="text-xl md:text-2xl text-gray-600 mb-2 font-medium">{t("home.subtitle")}</p>
             <p className="text-lg text-gray-600 mb-8">{t("home.tagline")}</p>
@@ -283,7 +288,7 @@ export function HomePage() {
               size="lg"
               className="bg-green-600 hover:bg-green-700 text-white px-8 py-4 text-lg rounded-full shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 ease-in-out transform"
             >
-              <Heart className="h-5 w-5 mr-2" />
+              <Heart className="h-5 w-5 mr-2 text-white" />
               {t("home.cta.donor")}
             </Button>
             <Button
@@ -434,44 +439,36 @@ export function HomePage() {
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
             {[
-              // What organ donation is
               {
-                img: '/images/1.png',
+                heading: 'What organ donation is?',
                 url: 'https://drive.google.com/file/d/1GzzP1HUwaXFIypJcDLn-M944frMNFsGW/view?usp=drive_link',
               },
-              // Is there an age limit?
               {
-                img: '/images/2.png',
+                heading: 'Is there an age limit?',
                 url: 'https://drive.google.com/file/d/1AhlI_K632_nORbiydcDBw9uJf2BKxmO8/view?usp=drive_link',
               },
-              // Types of organ donation
               {
-                img: '/images/3.png',
+                heading: 'Types of organ donation',
                 url: 'https://drive.google.com/file/d/1GzzP1HUwaXFIypJcDLn-M944frMNFsGW/view?usp=drive_link',
               },
-              // Which organ can be donated?
               {
-                img: '/images/4.png',
+                heading: 'Which organ can be donated?',
                 url: 'https://drive.google.com/file/d/1H7iWbpXAOUShEb88QXXkXZzL4ObQG7G3/view?usp=drive_link',
               },
-              // How many lives can organ donor save?
               {
-                img: '/images/5.png',
+                heading: 'How many lives can organ donor save?',
                 url: 'https://drive.google.com/file/d/1zYmfLXEhOzyyB3UOrD8LtPpcJlcjaEmj/view?usp=drive_link',
               },
-              // Whole body donation
               {
-                img: '/images/6.png',
+                heading: 'Whole body donation',
                 url: 'https://drive.google.com/file/d/10PjNDBDR0PTtc1JQuUJcYqMcZQRPZMi8/view?usp=drive_link',
               },
-              // who can be a donor?
               {
-                img: '/images/7.png',
+                heading: 'who can be a donor?',
                 url: 'https://drive.google.com/file/d/1PTiqsr68gCK-fKRR__a92B9BmTVScFju/view?usp=drive_link',
               },
-              // Heart transplant journey
               {
-                img: '/images/8.png',
+                heading: 'Heart transplant journey',
                 url: 'https://drive.google.com/file/d/1ldEa42Yn-bBwA4DNnJczDMuUbE5TH_ut/view?usp=drive_link',
               },
             ].map((video, idx) => (
@@ -480,22 +477,20 @@ export function HomePage() {
                 href={video.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-white rounded-xl shadow-lg overflow-hidden flex flex-col items-center group transform transition duration-300 hover:scale-105 hover:shadow-2xl animate-fade-in-up"
+                className="bg-white rounded-xl shadow-lg overflow-hidden flex flex-col items-center group transform transition duration-300 hover:scale-105 hover:shadow-2xl animate-fade-in-up p-6 relative"
                 style={{ animationDelay: `${idx * 80}ms` }}
                 title="Open video in new tab"
               >
-                <div className="relative w-full h-48 md:h-56 lg:h-64 overflow-hidden">
-                  <img
-                    src={video.img}
-                    alt="Organ Donation Video Thumbnail"
-                    className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <svg className="w-16 h-16 text-white" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M14.752 11.168l-5.197-3.027A1 1 0 008 9.027v5.946a1 1 0 001.555.832l5.197-3.027a1 1 0 000-1.664z" />
-                      <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2" />
+                <div className="flex flex-col items-center justify-center w-full h-48 md:h-56 lg:h-64 relative">
+                  <span className="text-lg font-semibold text-center text-gray-800 mb-4 px-2">
+                    {video.heading}
+                  </span>
+                  <span className="absolute inset-0 flex items-center justify-center">
+                    <svg className="w-16 h-16 text-blue-600 opacity-80" fill="currentColor" viewBox="0 0 64 64">
+                      <circle cx="32" cy="32" r="32" fill="#fff" fillOpacity="0.7" />
+                      <polygon points="26,20 50,32 26,44" fill="#2563eb" />
                     </svg>
-                  </div>
+                  </span>
                 </div>
               </a>
             ))}
@@ -607,8 +602,8 @@ export function HomePage() {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div className="col-span-1 md:col-span-2">
               <div className="flex items-center mb-4">
-                <div className="bg-gradient-to-r from-blue-600 to-green-600 p-2 rounded-full mr-3">
-                  <Heart className="h-6 w-6 text-white" />
+                <div className="p-2 rounded-full mr-3">
+                  <img src="/images/logo.png" alt="Jeevan Setu Logo" className="h-10 w-10 object-contain" />
                 </div>
                 <div>
                   <h3 className="text-xl font-bold">{t("home.title")}</h3>
@@ -676,7 +671,7 @@ export function HomePage() {
           </div>
 
           <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-            <p>© 2024 Jeevan Setu. {language === "en" ? "All rights reserved." : "सभी अधिकार सुरक्षित।"}</p>
+            <p>© 2025 Jeevan Setu. {language === "en" ? "All rights reserved." : "सभी अधिकार सुरक्षित।"}</p>
           </div>
         </div>
       </footer>

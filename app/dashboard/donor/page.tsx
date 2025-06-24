@@ -32,7 +32,7 @@ export default function DonorDashboardPage() {
   }
 
   if (!user || profile?.role !== "donor" || !profile.profile_completed) {
-    return null // Will redirect in useEffect
+    return null
   }
 
   return <DonorDashboard user={user} />

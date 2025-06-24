@@ -245,11 +245,6 @@ export function DoctorDashboard({ user }: { user: any }) {
           <p className="text-gray-600">Review and verify donor and recipient profiles</p>
         </div>
 
-        {/* Matching Panel */}
-        <div className="mb-10">
-          <MatchingPanel doctorId={user.id} />
-        </div>
-
         {/* Stats Cards */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
           <Card>
@@ -386,11 +381,12 @@ export function DoctorDashboard({ user }: { user: any }) {
           </CardContent>
         </Card>
 
-        {/* Profile Lists */}
+        {/* Profile Lists & Matching Panel as Tabs */}
         <Tabs defaultValue="donors" className="space-y-4">
           <TabsList>
             <TabsTrigger value="donors">Donor Profiles ({donorProfiles.length})</TabsTrigger>
             <TabsTrigger value="recipients">Recipient Profiles ({recipientProfiles.length})</TabsTrigger>
+            <TabsTrigger value="matching">Matching Panel</TabsTrigger>
           </TabsList>
 
           <TabsContent value="donors">
@@ -540,6 +536,14 @@ export function DoctorDashboard({ user }: { user: any }) {
                 </Card>
               ))}
             </div>
+          </TabsContent>
+
+          <TabsContent value="matching">
+            <MatchingPanel 
+              doctorId={user.id} 
+              doctorName={user.full_name || user.name || user.email || "Doctor"}
+              doctorEmail={user.email}
+            />
           </TabsContent>
         </Tabs>
 
