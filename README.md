@@ -16,7 +16,7 @@
 
 ## 🚀 Live Demo
 
-🌐 [Visit Jeevan Setu Live →](https://xenos-cih-2-0.vercel.app/)
+🌐 [Visit Jeevan Setu Live →](https://jeevan-setu-xenos.vercel.app/)
 
 ---
 
