@@ -55,7 +55,7 @@
 
 Made with ❤️ during [CIH 2.0 Hackathon] by:
 - Jayant Kurekar (Product + Full Stack Dev)
-- Janavi Kurekar
+- Janavi Kurekar (Full stack dev)
 - Manthan Nagose
 - Mohit Vaidya
 
